@@ -25,7 +25,16 @@ Prisma: Prisma is an open-source database toolkit that includes an ORM (Object-R
 
 PlanetScale: PlanetScale is a database platform that’s built on MySQL and Vitess. It's designed to be powerful, scalable, and resilient, ensuring that databases can handle massive scales without compromising on performance or reliability. PlanetScale simplifies database operations, such as scaling and schema changes, making it a robust choice for businesses and developers looking for a high-performance database solution. https://planetscale.com/
 
-React-hot-toast: "need to fill this"------------------
+React Hot Toast: is a lightweight library for creating notifications in React applications. It is easy to use and provides a variety of features, including:
+
+Customizable appearance
+Automatic positioning
+Stacking support
+Promise API
+Accessibility support
+React Hot Toast is a great choice for developers who want to add notifications to their React applications quickly and easily.
+
+Cloudinary: is a cloud-based media management and delivery platform. It provides a wide range of features for developers to manage and deliver media assets, including images, videos, and audio files. Cloudinary also offers a variety of tools for transforming and optimizing media assets for different devices and platforms.
 
 ## Installation and Setup
 Clone the repository:
@@ -58,3 +67,5 @@ Add the features bellow to the README.md.
 1- ModalProvider in modal-provider.tsx was created to avoid Hydration or asynchronization on server and client side rendering. 
 (If ther server has no model open but the client does this will trigger a hydration error.)
 
+### Hook use-orgin
+This hook was created so we can safely access the window because the it does not exist in the Server side rendering of Next13, only in the browser. 
