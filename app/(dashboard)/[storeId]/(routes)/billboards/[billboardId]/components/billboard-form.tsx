@@ -69,10 +69,10 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
         await axios.post(`/api/${params.storeId}/billboards`, data);
       }
       router.refresh();
+      router.push(`/${params.storeId}/billboards`)
       toast.success(toastMessage)
-      toast.success("Store deleted with success!")
     } catch(error) {
-        toast.error("Error @ settings-form.tsx onSubmit")
+        toast.error("Error @settings-form.tsx onSubmit")
     } finally {
       setLoading(false);
     }
