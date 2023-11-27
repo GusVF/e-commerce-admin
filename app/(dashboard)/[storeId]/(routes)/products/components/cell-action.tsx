@@ -16,10 +16,10 @@ import { DropdownMenu,
 import { Button } from "@/components/ui/button";
 
 import { AlertModal } from "@/components/modals/alert-modal";
-import { BillboardColumn } from "./columns";
+import { ProductColumn } from "./columns";
 
 interface CellActionProps {
-  data: BillboardColumn
+  data: ProductColumn
 }
 
 export const CellAction: React.FC<CellActionProps>  = ({
