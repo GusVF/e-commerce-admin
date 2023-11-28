@@ -15,6 +15,7 @@ import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { Form,
    FormControl,
+   FormDescription,
    FormField,
    FormItem,
    FormLabel, 
@@ -29,6 +30,7 @@ import { Select,
    SelectTrigger, 
    SelectValue
      } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -95,10 +97,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         await axios.post(`/api/${params.storeId}/products`, data);
       }
       router.refresh();
-      router.push(`/${params.storeId}/billboards`)
+      router.push(`/${params.storeId}/products`)
       toast.success(toastMessage)
     } catch(error) {
-        toast.error("Error @settings-form.tsx onSubmit")
+        toast.error("Error @products-form.tsx onSubmit")
     } finally {
       setLoading(false);
     }
@@ -107,12 +109,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const onDelete = async () => {
     try {
       setLoading(true)
-      await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
+      await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
       router.refresh();
-      router.push(`/${params.storeId}/billboards`)
-      toast.success("Billboard deleted.")
+      router.push(`/${params.storeId}/products`)
+      toast.success("Products deleted.")
     } catch (error) {
-      toast.error("Make sure to remove all categories using this billboard first!")
+      toast.error("Somethign went wrong on product-form.tsx/117")
     } finally {
       setLoading(false)
       setOpen(false)
@@ -298,6 +300,50 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     </SelectContent>
                   </Select>
                   <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField 
+              control={form.control}
+              name="isFeatured"
+              render={({field}) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                     />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>
+                      Featured
+                    </FormLabel>
+                    <FormDescription>
+                      This Product will appear on the home page
+                    </FormDescription>
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField 
+              control={form.control}
+              name="isArchived"
+              render={({field}) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                     />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>
+                      Archived
+                    </FormLabel>
+                    <FormDescription>
+                      This Product will not appear anywhere in the store
+                    </FormDescription>
+                  </div>
                 </FormItem>
               )}
             />
