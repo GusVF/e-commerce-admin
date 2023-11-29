@@ -1,6 +1,3 @@
-<!-- Delete the items bellow after project is done, they are only for reminders of how to generate and migrate/ push db. -->
- <!-- commands: npx prisma db push, npz prisma generate.  -->
-
 # E-Commerce Admin Dashboard
 An intuitive and responsive admin dashboard for e-commerce businesses, built using modern technologies and best practices.
 
