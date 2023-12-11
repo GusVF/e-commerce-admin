@@ -100,7 +100,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       router.push(`/${params.storeId}/products`)
       toast.success(toastMessage)
     } catch(error) {
-        toast.error("Error @products-form.tsx onSubmit")
+        toast.error("Up load at least one image!")
     } finally {
       setLoading(false);
     }
