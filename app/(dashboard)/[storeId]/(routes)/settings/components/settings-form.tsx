@@ -56,7 +56,6 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
       await axios.patch(`/api/stores/${params.storeId}`, data);
       router.refresh();
       toast.success("Store updated!")
-      toast.success("Store deleted with success!")
     } catch(error) {
         toast.error("Error @ settings-form.tsx onSubmit")
     } finally {
